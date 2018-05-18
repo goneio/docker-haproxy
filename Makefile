@@ -4,7 +4,7 @@ prepare:
 	docker pull alpine:3.6
 
 build:
-	docker build --squash -t gone/docker-haproxy --no-cache .
+	docker build --squash -t gone/haproxy --no-cache .
 
 push:
-	docker push gone/docker-haproxy
+	docker push gone/haproxy
