@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Writing default cert to /certs/_default.pem"
+echo $DEFAULT_SSL_CERT > /certs/_default.pem
+
 echo "Connecting to Redis...";
 CERT_COUNT=0
 redis-cli --raw -h $REDIS_HOST -p $REDIS_PORT -n $REDIS_DATABASE KEYS certs:* | while read -r LINE
