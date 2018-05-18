@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "Writing default cert to /certs/_default.pem"
-echo $DEFAULT_SSL_CERT > /certs/_default.pem
+echo $DEFAULT_SSL_CERT > /certs/cert0.pem
+sed -i "s/\\\n /\n/g" /certs/cert0.pem
+sed -i "s/\\\n/\n/g" /certs/cert0.pem
 
 echo "Connecting to Redis...";
 CERT_COUNT=0
@@ -20,4 +22,6 @@ do
 done
 
 printf '%d certificates imported.\n' $CERT_COUNT
+
+ls -lah /certs
 
